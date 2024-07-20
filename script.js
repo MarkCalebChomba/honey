@@ -1,6 +1,14 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
+function resizeCanvas() {
+    canvas.width = window.innerWidth - 20; // Subtracting some margin
+    canvas.height = window.innerHeight - 100; // Subtracting space for controls
+}
+
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
 const gameWidth = canvas.width;
 const gameHeight = canvas.height;
 
@@ -36,7 +44,7 @@ function loadLevel(level) {
     
     // Generate random treasures
     treasures = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
         treasures.push({
             x: getRandomInt(50, gameWidth - 70),
             y: getRandomInt(50, gameHeight - 70),
